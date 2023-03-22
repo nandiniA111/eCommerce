@@ -1,0 +1,475 @@
+* {
+  margin: 0;
+  padding: 0;
+  border-radius: 5px;
+  font-size: medium;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.cart-btn {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+}
+
+#cart {
+  position: relative;
+  font-size: 2rem;
+  cursor: pointer;
+  margin: 1em 4em 0 0;
+}
+
+.cart-quantity {
+  color: white;
+  background-color: red;
+  padding: .2em .3em;
+  position: absolute;
+  margin: .8em 7.5em 0 0;
+  right: 0;
+  border: solid 2px red;
+  border-radius: 15px;
+  font-weight: bolder;
+}
+
+.items-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  margin-top: 1em
+}
+
+.card {
+  /*   width: 15rem; */
+  margin: 1em;
+  position: relative;
+  overflow: hidden;
+  text-align: center
+}
+
+.card:hover .add-to-cart {
+  transform: translateX(0);
+}
+
+.product-image {
+  margin-bottom: 1em
+}
+
+.add-to-cart {
+  background-color: black;
+  color: white;
+  position: absolute;
+  right: 0;
+  top: 65%;
+  padding: .5em 1em;
+  transform: translateX(300px);
+  transition: .5s ease;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  font-weight: bolder;
+  font-size: 1.2rem
+}
+
+.product-price {
+  padding-top: 1em;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.cart-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, .5);
+  z-index: 2;
+  transform: translateX(-200%);
+  transition: .5s ease-out;
+
+}
+
+.cart-modal {
+  height: 100vh;
+  width: 50%;
+  background-color: rgb(252, 243, 243);
+  float: right;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+#close-btn {
+  font-size: 1.5rem;
+  float: right;
+  margin: .5em 2em 0 0;
+  color: rgb(15, 0, 0);
+  cursor: pointer;
+}
+
+.cart-is-empty {
+  color: rgb(12, 0, 0);
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 1em;
+  display: none;
+
+}
+
+.total {
+  text-align: center;
+  margin: 2em 0 2em 0;
+  /*   display: none; */
+}
+
+.cart-total {
+  font-family: 'Shantell Sans', cursive;
+  color: rgb(21, 1, 1);
+}
+
+.total-price {
+  font-family: 'Shantell Sans', cursive;
+  color: rgb(5, 0, 0);
+  font-size: 2rem;
+  display: block;
+}
+
+.purchase-btn {
+  font-size: 1rem;
+  font-weight: bolder;
+  background-color: rgb(3, 30, 99);
+  color: white;
+  padding: 1em 2em;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  margin: 2em 0 1em 0;
+  text-decoration: none;
+}
+
+.product-rows {
+  margin-top: 3em;
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+.product-row {
+  display: flex;
+  align-items: center;
+}
+
+.cart-image {
+  width: 10rem;
+  margin: 1em;
+}
+
+.cart-price {
+  color: rgb(9, 0, 0);
+  font-size: 1.5rem;
+  font-weight: bolder;
+}
+
+.product-quantity {
+  width: 4rem;
+  font-size: 2rem;
+  margin-left: 3rem;
+}
+
+.remove-btn {
+  padding: 1em 2em;
+  border-radius: 5px;
+  background-color: rgb(1, 59, 65);
+  color: white;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  margin-left: 3rem;
+  font-weight: bolder;
+  font-size: 1rem;
+  box-shadow: 20px 20px 50px grey;
+}
+
+.remove-btn:active {
+  transform: translateY(5px);
+}
+
+@media (max-width: 1000px) {
+  .cart-modal {
+    width: 100vw;
+  }
+
+  .product-row {
+    flex-direction: column;
+    text-align: center;
+    margin-bottom: 2em;
+  }
+
+  .remove-btn {
+    margin: 0
+  }
+
+  .product-quantity {
+    margin: .5em 0 .5em 0
+  }
+}
+
+.card-1.card {
+  background-color: rgb(244, 199, 144);
+}
+
+.card-2.card {
+  background-color: rgb(244, 199, 144);
+}
+
+.card-3.card {
+  background-color: rgb(244, 199, 144);
+}
+
+.card-4.card {
+  background-color: rgb(244, 199, 144);
+}
+
+.card-5.card {
+  background-color: rgb(244, 199, 144);
+}
+
+/* Checkout */
+
+body {
+  background-image: url("https://img.freepik.com/free-vector/hand-painted-watercolor-pastel-sky-background_23-2148902771.jpg?w=1060&t=st=1679489012~exp=1679489612~hmac=3c6358f19976bc72ee611b58e02f91807f2b74f5c42b47f7d13be02f28374d47");
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  font-family: Arial;
+  font-size: 17px;
+  padding: 8px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.row {
+  display: -ms-flexbox;
+  /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap;
+  /* IE10 */
+  flex-wrap: wrap;
+  margin: 0 -16px;
+}
+
+.col-25 {
+  -ms-flex: 25%;
+  /* IE10 */
+  flex: 25%;
+}
+
+.col-50 {
+  -ms-flex: 50%;
+  /* IE10 */
+  flex: 50%;
+}
+
+.col-75 {
+  -ms-flex: 75%;
+  /* IE10 */
+  flex: 75%;
+}
+
+.col-25,
+.col-50,
+.col-75 {
+  padding: 0 16px;
+}
+
+.icon-container {
+  margin-bottom: 20px;
+  padding: 7px 0;
+  font-size: 24px;
+}
+
+input[type=text] {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+label {
+  margin-bottom: 10px;
+  display: block;
+}
+
+a {
+  color: #2196F3;
+}
+
+hr {
+  border: 1px solid lightgrey;
+}
+
+span.price {
+  float: right;
+  color: grey;
+}
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (also change the direction - make the "cart" column go on top) */
+@media (max-width: 800px) {
+  .row {
+    flex-direction: column-reverse;
+  }
+
+  .col-25 {
+    margin-bottom: 20px;
+  }
+}
+
+.checkout-btn {
+  width: 250px;
+  height: 40px;
+  background-color: #46d2bb;
+  color: rgb(252, 252, 252);
+  border-radius: 5px;
+  border: 0px;
+  text-decoration: none;
+  box-shadow: 20px 20px 50px grey;
+}
+
+.girl-image {
+  position: absolute;
+  height: 430px;
+  width: 320px;
+  margin-top: 80px;
+  margin-left: 1180px;
+  box-shadow: 20px 20px 50px grey;
+
+}
+
+/*Thank You */
+.sale-img {
+  position: absolute;
+  height: 480px;
+  width: 360px;
+  margin-top: 80px;
+  margin-left: 120px;
+  box-shadow: 20px 20px 50px grey;
+}
+
+.Summer-sale {
+  margin-top: 150px;
+  text-align: center;
+  font-family: 'Shantell Sans', cursive;
+}
+
+.Thank.you {
+  margin-left: 280px;
+  font-size: 90px;
+}
+
+.shopping {
+  font-size: 25px;
+  margin-left: 360px;
+}
+
+.Comming-Soon {
+  margin-left: 340px;
+  margin-top: 50px;
+  font-size: 100px;
+}
+
+.sale {
+  margin-left: 360px;
+  font-size: 30px;
+}
+
+.enjoy {
+  margin-left: 360px;
+  font-size: 40px;
+}
+
+.shopping-bags {
+  height: 200px;
+  width: 150px;
+  margin-top: 20px;
+  margin-left: 800px;
+  box-shadow: 20px 20px 50px grey;
+}
+
+h1 {
+  font-family: 'Delicious Handrawn', cursive;
+  font-size: 40px;
+
+}
+
+.reward {
+  font-family: 'Satisfy', cursive;
+  text-align: center;
+}
+
+.smile {
+  position: absolute;
+  margin-left: 650px;
+  height: 50px;
+  width: 190px;
+}
+
+/* List Grid View */
+* {
+  box-sizing: border-box;
+}
+
+/* Create two equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Style the buttons */
+.btn {
+  border: none;
+  outline: none;
+  padding: 0;
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #ddd;
+}
+
+.btn.active {
+  background-color: #666;
+  color: white;
+}
+
+h2 {
+  text-align: center;
+}
+
+.list-seadon {
+  margin: 20px;
+  text-align: center;
+  font-size: 70px;
+  font-family: cursive;
+}
+
+.year {
+  margin-left: 80px;
+  font-size: 15px;
+
+}
